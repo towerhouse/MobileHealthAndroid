@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/submenu_patients">
+        <menu>
+            <item
+                android:id="@+id/nav_todays_schedule"
+                android:icon="@drawable/ic_menu_gallery"
+                android:checked="true"
+                android:title="@string/todays_schedule" />
+            <item
+                android:id="@+id/nav_patients"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/patients" />
+        </menu>
+    </item>
+
+    <item android:title="@string/submenu_user">
+        <menu>
+            <item
+                android:id="@+id/nav_change_user_data"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/change_user_data" />
+            <item
+                android:id="@+id/nav_change_pin"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/change_pin" />
+        </menu>
+    </item>
+
+    <item android:title="@string/submenu_system">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/logout" />
+        </menu>
+    </item>
+</menu>

@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Mobilehealth</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in">Registrate</string>
+    <string name="action_sign_in_short">Entrar</string>
+    <string name="error_invalid_email">El email proporcionado es inválido</string>
+    <string name="error_invalid_password">La contraseña es muy corta</string>
+    <string name="error_incorrect_password">La contraseña es incorrecta</string>
+    <string name="error_field_required">Este campo es requerido</string>
+    <string name="permission_rationale">"Se necesita dar a la app permisos de contacto
+        para autocompletar los emails."</string>
+
+    <!-- Strings related to activity titles -->
+    <string name="title_activity_profile">Cuidados Paliativos</string>
+    <string name="navigation_drawer_open">Abrir navegación</string>
+    <string name="navigation_drawer_close">Cerrar navegación</string>
+    <string name="action_settings">Configuración</string>
+
+    <!-- Strings related to patients menu -->
+    <string name="submenu_patients">Pacientes</string>
+    <string name="todays_schedule">Mi agenda</string>
+    <string name="patients">Pacientes</string>
+
+    <!-- Strings related to profile menu user -->
+    <string name="submenu_user">Manejar mis datos</string>
+    <string name="change_user_data">Información de perfil</string>
+    <string name="change_pin">Cambiar mi pin</string>
+
+    <!-- Strings related to system menu-->
+    <string name="submenu_system">Sistema</string>
+    <string name="logout">Salir</string>
+
+
+    <!-- Strings related to fragment titles-->
+    <string name="fragment_todays_schedule">Pacientes para hoy</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_patients">PatientsActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+</resources>
