@@ -1,6 +1,7 @@
 package app.thslucia.mobilehealth;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -16,8 +17,7 @@ import java.util.List;
 
 import app.thslucia.mobilehealth.model.Schedule;
 
-public class ProfileActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class ProfileActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
 
@@ -25,9 +25,6 @@ public class ProfileActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
-        getPatientsList();
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -36,13 +33,55 @@ public class ProfileActivity extends AppCompatActivity
                 this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         toggle.syncState();
 
+        //Default action
+        getPatientsList();
 
+        initNavigationDrawer();
+    }
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+    public void initNavigationDrawer() {
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        final NavigationView navigationView = (NavigationView)findViewById(R.id.nav_view);
+        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        assert navigationView != null;
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
+            @Override
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+
+                    // Handle navigation view item clicks here.
+                    int id = menuItem.getItemId();
+
+                    if (id == R.id.nav_todays_schedule) {
+                        getPatientsList();
+                    } else if (id == R.id.nav_patients) {
+                        getPatientsList();
+                    } else if (id == R.id.nav_logout) {
+                        finish();
+                    }
+
+                    highlightItem(menuItem);
+                    return true;
+            }
+
+            public void highlightItem(MenuItem newChecked) {
+                    int size = navigationView.getMenu().size();
+                    for (int i = 0; i < size; i++) {
+                        navigationView.getMenu().getItem(i).setChecked(false);
+                    }
+                    newChecked.setChecked(true);
+                    closeDrawer();
+            }
+
+            public void closeDrawer() {
+                drawer.closeDrawer(GravityCompat.START);
+            }
+
+            public void openDrawer() {
+                drawer.openDrawer(GravityCompat.START);
+            }
+
+        });
     }
 
     @Override
@@ -58,23 +97,6 @@ public class ProfileActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.profile, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_patients) {
-
-        } else if (id == R.id.nav_logout) {
-
-        } else {
-            //By default show todays schedule
-            getPatientsList();
-        }
         return true;
     }
 
