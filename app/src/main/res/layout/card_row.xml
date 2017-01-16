@@ -14,7 +14,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/todays_schedule_thumbnail"
+            android:id="@+id/card_thumbnail"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:layout_alignParentTop="true"
@@ -22,10 +22,10 @@
             android:src="@drawable/ic_menu_send"/>
 
         <TextView
-            android:id="@+id/todays_schedule_title"
+            android:id="@+id/card_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/todays_schedule_thumbnail"
+            android:layout_below="@+id/card_thumbnail"
             android:layout_centerVertical="true"
             android:layout_marginLeft="12dp"
             android:maxLines="3"

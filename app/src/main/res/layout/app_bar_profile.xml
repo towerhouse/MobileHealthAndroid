@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true"
     tools:context="app.thslucia.mobilehealth.ProfileActivity">
 
-    <!-- The main content view where fragments are loaded -->
+    <!-- The main content view where fragments are loaded (in a RecyclerView)-->
     <android.support.v7.widget.RecyclerView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/container_body"
