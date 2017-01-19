@@ -134,12 +134,12 @@ public class ProfileActivity extends AppCompatActivity {
 
     public List<Patient> fillWithPatientData() {
         List<Patient> data = new ArrayList<>();
-        data.add(new Patient("Patricia Ximena", "Anchorena Vasquez", "abc@email.com"));
-        data.add(new Patient("Silvia Lucia", "Fiandra Rocha", "abcd@email.com"));
-        data.add(new Patient("Lucia Ibeth", "Figueroa Tasca", "abcde@email.com"));
-        data.add(new Patient("Juan", "Laguna Ferreira", "abcdef@email.com"));
-        data.add(new Patient("Diego", "Martinez de la Escada", "abcdefg@email.com"));
-        data.add(new Patient("Andrés Marcelo", "Om Palacios", "abcdefgh@email.com"));
+        data.add(new Patient("Patricia", "Ximena", "Anchorena", "Vasquez", "Principal", "Canelones 2011 apto 53\nEntre Pablo de Maria y Blanes", "Principal", "099 809 789"));
+        data.add(new Patient("Silvia", "Lucia", "Fiandra", "Rocha", "Materno", "Carlos Gardel 198", "Principal", "2400 20 21"));
+        data.add(new Patient("Lucia", "Ibeth", "Figueroa", "Tasca", "Suegros", "Defensa 3090 esquina Goes", "Principal", "094 567 890"));
+        data.add(new Patient("Juan", "", "Laguna", "Ferreira", "Amigos", "San Juan Pastor 4530 apto 101\nEntre San Jose y Santa Marta", "Principal", "091 209 333"));
+        data.add(new Patient("Diego", "", "Martinez", "de la Escada", "Abuelos", "Avelino Miranda 2673 apto 003\nEntre Avenida Italia y Bahia Blanca", "Principal", "2900 890 789"));
+        data.add(new Patient("Andrés", "Marcelo", "Om", "Palacios", "Principal", "18 de Diciembre 1373 apto 308, Torre 1", "Principal", "093 456 900"));
         return data;
     }
 }

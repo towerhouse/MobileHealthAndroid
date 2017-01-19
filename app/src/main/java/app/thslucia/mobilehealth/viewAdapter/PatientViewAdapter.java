@@ -10,6 +10,9 @@ import android.widget.TextView;
 import java.util.Collections;
 import java.util.List;
 
+import com.balysv.materialripple.MaterialRippleLayout;
+import com.pkmmte.view.CircularImageView;
+
 import app.thslucia.mobilehealth.R;
 import app.thslucia.mobilehealth.model.Patient;
 
@@ -36,10 +39,13 @@ public class PatientViewAdapter extends RecyclerView.Adapter<PatientViewAdapter.
     @Override
     public void onBindViewHolder(PatientViewHolder patientViewHolder, int i) {
         Patient ci = patientList.get(i);
-        patientViewHolder.name.setText(ci.getName());
-        patientViewHolder.last_name.setText(ci.getLastName());
-        patientViewHolder.email.setText(ci.getEmail());
-        patientViewHolder.title.setText(ci.getTitle());
+        patientViewHolder.card_patient_first_names.setText(ci.getFirstNames());
+        patientViewHolder.card_patient_last_names.setText(ci.getLastNames());
+        patientViewHolder.card_patient_phone_type.setText(ci.getPhoneType());
+        patientViewHolder.card_patient_phone.setText(ci.getPhone());
+        patientViewHolder.card_patient_address_type.setText(ci.getAddressType());
+        patientViewHolder.card_patient_address.setText(ci.getAddress());
+        patientViewHolder.card_patient_last_visit.setText(ci.getLastVisitDate());
     }
 
     @Override
@@ -66,17 +72,38 @@ public class PatientViewAdapter extends RecyclerView.Adapter<PatientViewAdapter.
     }
 
     public class PatientViewHolder extends RecyclerView.ViewHolder {
-        protected TextView name;
-        protected TextView last_name;
-        protected TextView email;
-        protected TextView title;
+        protected TextView card_patient_first_names;
+        protected TextView card_patient_last_names;
+        protected TextView card_patient_last_visit;
+        protected TextView card_patient_address_type;
+        protected TextView card_patient_address;
+        protected TextView card_patient_phone_type;
+        protected TextView card_patient_phone;
 
         public PatientViewHolder(View v) {
             super(v);
-            name = (TextView) v.findViewById(R.id.card_patient_name);
-            last_name = (TextView) v.findViewById(R.id.card_patient_last_name);
-            email = (TextView) v.findViewById(R.id.card_patient_email);
-            title = (TextView) v.findViewById(R.id.card_patient_title);
+            setActiveIcon(v);
+            setCircularIconFrame(v);
+            card_patient_first_names = (TextView) v.findViewById(R.id.card_patient_first_names);
+            card_patient_last_names = (TextView) v.findViewById(R.id.card_patient_last_names);
+            card_patient_last_visit = (TextView) v.findViewById(R.id.card_patient_last_visit);
+            card_patient_address_type = (TextView) v.findViewById(R.id.card_patient_address_type);
+            card_patient_address = (TextView) v.findViewById(R.id.card_patient_address);
+            card_patient_phone_type = (TextView) v.findViewById(R.id.card_patient_phone_type);
+            card_patient_phone = (TextView) v.findViewById(R.id.card_patient_phone);
+        }
+
+        protected void setActiveIcon(View v) {
+            CircularImageView circularImageView = (CircularImageView) v.findViewById(R.id.card_patient_status);
+        }
+
+        protected void setCircularIconFrame(View v) {
+            CircularImageView circularImageView = (CircularImageView) v.findViewById(R.id.card_patient_frame);
+            circularImageView.setBorderColor(R.color.gray_border);
+            circularImageView.setBorderWidth(10);
+            circularImageView.setSelectorColor(R.color.light_blue);
+            circularImageView.setSelectorStrokeWidth(10);
+            circularImageView.addShadow();
         }
     }
 }
