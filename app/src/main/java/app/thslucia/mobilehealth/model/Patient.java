@@ -5,6 +5,9 @@ package app.thslucia.mobilehealth.model;
  */
 public class Patient {
 
+    public static final String STATUS_ACTIVE = "active";
+    public static final String STATUS_INACTIVE = "inactive";
+
     public Patient(String first_name, String second_name, String last_name, String second_last_name) {
         this.first_name = first_name;
         this.first_last_name = first_last_name;
@@ -13,7 +16,7 @@ public class Patient {
     }
 
     public Patient(String first_name, String second_name, String first_last_name, String second_last_name,
-                   String address_type, String address, String phone_type, String phone) {
+                   String address_type, String address, String phone_type, String phone, String status) {
         this.first_name = first_name;
         this.first_last_name = first_last_name;
         this.second_name = second_name;
@@ -22,6 +25,7 @@ public class Patient {
         this.address = address;
         this.phone_type = phone_type;
         this.address_type = address_type;
+        this.status = status;
     }
 
     protected String id;

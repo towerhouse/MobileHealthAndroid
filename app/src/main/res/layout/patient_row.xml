@@ -19,46 +19,38 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="1">
 
             <!-- Start basic profile data -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:paddingBottom="20dp"
-                android:paddingLeft="0dp"
-                android:paddingTop="10dp">
+                android:paddingBottom="10dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:layout_weight="61">
 
-                <com.pkmmte.view.CircularImageView
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
+                <ImageView
                     android:id="@+id/card_patient_frame"
-                    android:src="@drawable/ic_assignment"
-                    app:border="true"
-                    app:border_color="@color/content_page"
-                    app:border_width="1dp"
-                    app:shadow="false" />
-
-                <com.pkmmte.view.CircularImageView
-                    android:src="@drawable/ic_verified"
-                    android:id="@+id/card_patient_status"
-                    app:border="true"
-                    app:border_color="#fff"
-                    app:border_width="1dp"
-                    app:shadow="false"
-                    android:layout_marginLeft="-24dp"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginTop="16dp" />
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:clickable="true"
+                    android:padding="5dp"
+                    android:src="@drawable/ic_assignment" />
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
@@ -102,7 +94,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="20dp"
+                        android:layout_height="wrap_content"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -111,7 +103,8 @@
                             android:layout_height="20dp"
                             android:src="@drawable/ic_query_builder"
                             android:visibility="visible"
-                            android:padding="10dp" />
+                            android:tint="@color/green"
+                            android:paddingRight="2dp" />
 
                         <TextView
                             android:id="@+id/card_patient_last_visit"
@@ -122,7 +115,9 @@
                             android:text="Mierc. 2 Enero, 2017 - 16 días"
                             android:textStyle="normal"
                             android:visibility="visible"
-                            android:minHeight="20dp" />
+                            android:height="20dp"
+                            android:paddingTop="1dp"
+                            android:paddingRight="5dp" />
 
                     </LinearLayout>
 
@@ -134,7 +129,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/itemMenuButton"
+                        android:id="@+id/card_patient_contextual_menu"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:clickable="true"
@@ -151,7 +146,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
             </LinearLayout>
 
             <LinearLayout
@@ -211,6 +205,14 @@
 
                         </LinearLayout>
 
+                        <ImageView
+                            android:id="@+id/card_patient_more_addresses"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:clickable="true"
+                            android:padding="5dp"
+                            android:src="@drawable/ic_arrow_drop_down"/>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -222,6 +224,14 @@
                 android:layout_height="2px"
                 android:background="@color/gray_bg"
                 android:layout_marginTop="5dp" />
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            </LinearLayout>
             <!-- End address data -->
 
             <!-- Start phone data -->
@@ -287,6 +297,14 @@
 
                             </LinearLayout>
 
+                            <ImageView
+                                android:id="@+id/card_patient_more_phones"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:clickable="true"
+                                android:padding="5dp"
+                                android:src="@drawable/ic_arrow_drop_down" />
+
                         </LinearLayout>
 
                     </LinearLayout>
@@ -294,6 +312,8 @@
                 </LinearLayout>
 
             </LinearLayout>
+
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2px"
@@ -321,12 +341,12 @@
                         android:gravity="center_vertical|center_horizontal">
 
                         <ImageView
-                            android:id="@+id/itemShareImg"
+                            android:id="@+id/card_patient_schedule_date"
                             android:layout_width="32dp"
                             android:layout_height="40dp"
                             android:clickable="false"
                             android:padding="5dp"
-                            android:src="@drawable/ic_menu_share" />
+                            android:src="@drawable/ic_date_range" />
 
                     </LinearLayout>
 
@@ -352,12 +372,13 @@
                             android:clickable="false" />
 
                         <ImageView
-                            android:id="@+id/itemAnswerImg"
+                            android:id="@+id/card_patient_medication_information"
+                            android:layout_width="32dp"
                             android:layout_height="40dp"
                             android:clickable="false"
                             android:padding="5dp"
-                            android:src="@drawable/ic_reply"
-                            android:layout_width="32dp" />
+                            android:src="@drawable/ic_colorize" />
+
 
                     </LinearLayout>
 
@@ -383,12 +404,12 @@
                             android:clickable="false" />
 
                         <ImageView
-                            android:id="@+id/itemLikeImg"
-                            android:layout_width="32dp"
+                            android:id="@+id/card_patient_visits_number"
                             android:layout_height="40dp"
                             android:clickable="false"
                             android:padding="5dp"
-                            android:src="@drawable/ic_colorize" />
+                            android:src="@drawable/ic_reply"
+                            android:layout_width="32dp" />
 
                     </LinearLayout>
 

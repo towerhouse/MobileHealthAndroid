@@ -1,10 +1,13 @@
 package app.thslucia.mobilehealth.viewAdapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Collections;
@@ -13,6 +16,7 @@ import java.util.List;
 import com.balysv.materialripple.MaterialRippleLayout;
 import com.pkmmte.view.CircularImageView;
 
+import app.thslucia.mobilehealth.PatientsPhoneActivity;
 import app.thslucia.mobilehealth.R;
 import app.thslucia.mobilehealth.model.Patient;
 
@@ -37,7 +41,7 @@ public class PatientViewAdapter extends RecyclerView.Adapter<PatientViewAdapter.
     }
 
     @Override
-    public void onBindViewHolder(PatientViewHolder patientViewHolder, int i) {
+    public void onBindViewHolder(final PatientViewHolder patientViewHolder, int i) {
         Patient ci = patientList.get(i);
         patientViewHolder.card_patient_first_names.setText(ci.getFirstNames());
         patientViewHolder.card_patient_last_names.setText(ci.getLastNames());
@@ -46,6 +50,27 @@ public class PatientViewAdapter extends RecyclerView.Adapter<PatientViewAdapter.
         patientViewHolder.card_patient_address_type.setText(ci.getAddressType());
         patientViewHolder.card_patient_address.setText(ci.getAddress());
         patientViewHolder.card_patient_last_visit.setText(ci.getLastVisitDate());
+
+        //Open a new activity to show more phones
+        patientViewHolder.card_patient_more_phones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent phonesIntent = new Intent(context, PatientsPhoneActivity.class);
+                phonesIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(phonesIntent);
+            }
+        });
+
+        //Show if this patient is active or not by the icon color
+        setActiveIcon(patientViewHolder, i);
+    }
+
+
+    protected void setActiveIcon(PatientViewHolder patientViewHolder, int i) {
+        Patient current = patientList.get(i);
+        if (current.getStatus().equals(Patient.STATUS_INACTIVE)) {
+            patientViewHolder.card_patient_frame.setColorFilter(ContextCompat.getColor(context, R.color.light_gray));
+        }
     }
 
     @Override
@@ -79,11 +104,12 @@ public class PatientViewAdapter extends RecyclerView.Adapter<PatientViewAdapter.
         protected TextView card_patient_address;
         protected TextView card_patient_phone_type;
         protected TextView card_patient_phone;
+        protected ImageView card_patient_frame;
+        protected ImageView card_patient_more_addresses;
+        protected ImageView card_patient_more_phones;
 
         public PatientViewHolder(View v) {
             super(v);
-            setActiveIcon(v);
-            setCircularIconFrame(v);
             card_patient_first_names = (TextView) v.findViewById(R.id.card_patient_first_names);
             card_patient_last_names = (TextView) v.findViewById(R.id.card_patient_last_names);
             card_patient_last_visit = (TextView) v.findViewById(R.id.card_patient_last_visit);
@@ -91,19 +117,10 @@ public class PatientViewAdapter extends RecyclerView.Adapter<PatientViewAdapter.
             card_patient_address = (TextView) v.findViewById(R.id.card_patient_address);
             card_patient_phone_type = (TextView) v.findViewById(R.id.card_patient_phone_type);
             card_patient_phone = (TextView) v.findViewById(R.id.card_patient_phone);
+            card_patient_frame = (ImageView) v.findViewById(R.id.card_patient_frame);
+            card_patient_more_addresses = (ImageView) v.findViewById(R.id.card_patient_more_addresses);
+            card_patient_more_phones = (ImageView) v.findViewById(R.id.card_patient_more_phones);
         }
 
-        protected void setActiveIcon(View v) {
-            CircularImageView circularImageView = (CircularImageView) v.findViewById(R.id.card_patient_status);
-        }
-
-        protected void setCircularIconFrame(View v) {
-            CircularImageView circularImageView = (CircularImageView) v.findViewById(R.id.card_patient_frame);
-            circularImageView.setBorderColor(R.color.gray_border);
-            circularImageView.setBorderWidth(10);
-            circularImageView.setSelectorColor(R.color.light_blue);
-            circularImageView.setSelectorStrokeWidth(10);
-            circularImageView.addShadow();
-        }
     }
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Mobilehealth</string>
+    <string name="app_name">Cuidados Paliativos - Hospital Maciel</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -41,4 +41,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_patients">PatientsActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_patient_phones">Teléfonos de este paciente</string>
 </resources>
