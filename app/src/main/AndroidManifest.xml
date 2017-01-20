@@ -30,11 +30,19 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".PatientsPhoneActivity"
+            android:name=".PatientPhonesActivity"
             android:label="@string/title_activity_patient_phones"
             android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".ProfileActivity">
         </activity>
+
+        <activity
+            android:name=".PatientAddressesActivity"
+            android:label="@string/title_activity_patient_addresses"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".ProfileActivity">
+        </activity>
+
     </application>
 
 </manifest>

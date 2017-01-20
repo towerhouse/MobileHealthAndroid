@@ -13,10 +13,8 @@ import android.widget.TextView;
 import java.util.Collections;
 import java.util.List;
 
-import com.balysv.materialripple.MaterialRippleLayout;
-import com.pkmmte.view.CircularImageView;
-
-import app.thslucia.mobilehealth.PatientsPhoneActivity;
+import app.thslucia.mobilehealth.PatientAddressesActivity;
+import app.thslucia.mobilehealth.PatientPhonesActivity;
 import app.thslucia.mobilehealth.R;
 import app.thslucia.mobilehealth.model.Patient;
 
@@ -55,7 +53,17 @@ public class PatientViewAdapter extends RecyclerView.Adapter<PatientViewAdapter.
         patientViewHolder.card_patient_more_phones.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent phonesIntent = new Intent(context, PatientsPhoneActivity.class);
+                Intent phonesIntent = new Intent(context, PatientPhonesActivity.class);
+                phonesIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(phonesIntent);
+            }
+        });
+
+        //Open a new activity to show more addresses
+        patientViewHolder.card_patient_more_addresses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent phonesIntent = new Intent(context, PatientAddressesActivity.class);
                 phonesIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(phonesIntent);
             }
