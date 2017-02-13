@@ -4,6 +4,7 @@
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Contraseña</string>
+    <string name="forgot">Olvide mi contraseña</string>
     <string name="action_sign_in">Entrar</string>
     <string name="action_sign_in_short">Entrar</string>
     <string name="error_invalid_email">El email proporcionado es inválido</string>
@@ -43,4 +44,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_patients">PatientsActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
+
+    <!--font awesome strings-->
+    <string name="fa_angle_left">&#xf104;</string>
 </resources>

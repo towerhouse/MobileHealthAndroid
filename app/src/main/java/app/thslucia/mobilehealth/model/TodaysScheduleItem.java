@@ -1,4 +1,4 @@
-package app.thslucia.mobilehealth;
+package app.thslucia.mobilehealth.model;
 
 /**
  * Created by Usuario on 06/01/2017.
