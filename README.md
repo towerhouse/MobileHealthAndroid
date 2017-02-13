@@ -21,3 +21,11 @@ It assists patients with oncological and non-oncological diseases at an advanced
 His main working tools are: communication, teamwork, effectiveness in pain control, respect for the will and autonomy of its patients and compliance with bioethical principles.
 
 In this repository, besides the code, we're going to upload screenshots of the app's progress.
+
+## Progress
+
+### Login
+![Alt text](https://github.com/towerhouse/MobileHealthAndroid/blob/master/screenshots/Login.png?raw=true)
+
+### Agenda
+![Alt text](https://github.com/towerhouse/MobileHealthAndroid/blob/master/screenshots/Agenda.png?raw=true)
