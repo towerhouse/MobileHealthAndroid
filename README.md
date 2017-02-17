@@ -27,5 +27,8 @@ In this repository, besides the code, we're going to upload screenshots of the a
 ### Login
 ![Alt text](https://github.com/towerhouse/MobileHealthAndroid/blob/master/screenshots/Login.png?raw=true)
 
-### Agenda
+### Agenda de pacientes
 ![Alt text](https://github.com/towerhouse/MobileHealthAndroid/blob/master/screenshots/Agenda.png?raw=true)
+
+### Telefonos de un paciente
+![Alt text](https://github.com/towerhouse/MobileHealthAndroid/blob/master/screenshots/Telefonos.png?raw=true)
