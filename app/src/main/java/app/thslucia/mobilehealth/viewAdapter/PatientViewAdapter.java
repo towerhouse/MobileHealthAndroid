@@ -40,7 +40,7 @@ public class PatientViewAdapter extends RecyclerView.Adapter<PatientViewAdapter.
 
     @Override
     public void onBindViewHolder(final PatientViewHolder patientViewHolder, int i) {
-        Patient ci = patientList.get(i);
+        final Patient ci = patientList.get(i);
         patientViewHolder.card_patient_first_names.setText(ci.getFirstNames());
         patientViewHolder.card_patient_last_names.setText(ci.getLastNames());
         patientViewHolder.card_patient_phone_type.setText(ci.getPhoneType());
@@ -53,7 +53,7 @@ public class PatientViewAdapter extends RecyclerView.Adapter<PatientViewAdapter.
         patientViewHolder.card_patient_more_phones.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent phonesIntent = new Intent(context, PatientPhonesActivity.class);
+                Intent phonesIntent = new Intent(context, PatientPhonesActivity.class).putExtra("patient", ci);
                 phonesIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(phonesIntent);
             }

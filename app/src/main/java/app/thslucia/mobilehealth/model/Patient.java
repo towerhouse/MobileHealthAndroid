@@ -1,9 +1,12 @@
 package app.thslucia.mobilehealth.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by Usuario on 14/01/2017.
  */
-public class Patient {
+public class Patient implements Parcelable {
 
     public static final String STATUS_ACTIVE = "active";
     public static final String STATUS_INACTIVE = "inactive";
@@ -41,11 +44,9 @@ public class Patient {
     protected String status;
     protected String id_professional;
     protected String last_visit_date;
-
     //Address
     protected String address_type;
     protected String address;
-
     //Phone
     protected String phone_type;
     protected String phone;
@@ -172,5 +173,70 @@ public class Patient {
 
     public String getAddress() {
         return this.address;
+    }
+
+    /* Parcel methods */
+
+    public Patient(Parcel in ) {
+        readFromParcel( in );
+    }
+
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+        public Patient createFromParcel(Parcel in ) {
+            return new Patient( in );
+        }
+
+        public Patient[] newArray(int size) {
+            return new Patient[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        //Add them in the same order you declare them
+        dest.writeString(id);
+        dest.writeString(first_name);
+        dest.writeString(second_name);
+        dest.writeString(first_last_name);
+        dest.writeString(second_last_name);
+        dest.writeString(job);
+        dest.writeString(document);
+        dest.writeString(country);
+        dest.writeString(email);
+        dest.writeString(birthday);
+        dest.writeString(status);
+        dest.writeString(id_professional);
+        dest.writeString(last_visit_date);
+        //Address
+        dest.writeString(address_type);
+        dest.writeString(address);
+        //Phone
+        dest.writeString(phone_type);
+        dest.writeString(phone);
+    }
+
+    private void readFromParcel(Parcel in ) {
+        id = in.readString();
+        first_name = in.readString();
+        second_name = in.readString();
+        first_last_name = in.readString();
+        second_last_name = in.readString();
+        job = in.readString();
+        document = in.readString();
+        country = in.readString();
+        email = in.readString();
+        birthday = in.readString();
+        status = in.readString();
+        id_professional = in.readString();
+        last_visit_date = in.readString();
+        address_type = in.readString();
+        address = in.readString();
+        phone_type = in.readString();
+        phone = in.readString();
     }
 }
